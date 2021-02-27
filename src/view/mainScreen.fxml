@@ -20,7 +20,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField id="partsSearchFieldMain" fx:id="productSearchBox" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" style="-fx-border-color: lightgrey;" />
+            <TextField id="partsSearchFieldMain" fx:id="productSearchBox" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search product by Id or Name" style="-fx-border-color: lightgrey;" />
             <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b">
                <font>
                   <Font size="14.0" />
@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField id="partsSearchFieldMain" fx:id="productSearchBox1" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" style="-fx-border-color: lightgrey;" />
+            <TextField id="partsSearchFieldMain" fx:id="productSearchBox1" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search parts by Id or Name" style="-fx-border-color: lightgrey;" />
             <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b">
                <font>
                   <Font size="14.0" />

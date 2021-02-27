@@ -1,12 +1,12 @@
 /**
-* Supplied class Part.java
+ * Supplied class Part.java
  */
 package model;
 /**
  *
  * @author Vy Le
  */
-public abstract class Part {
+public abstract class Product {
     private int id;
     private String name;
     private double price;
@@ -14,7 +14,7 @@ public abstract class Part {
     private int min;
     private int max;
 
-    public Part(int id, String name, double price, int stock, int min, int max) {
+    public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -64,7 +64,7 @@ public abstract class Part {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
     /**
      * @return the stock
      */
@@ -106,5 +106,9 @@ public abstract class Part {
     public void setMax(int max) {
         this.max = max;
     }
-    
+
+    /**
+     * @param max the max to set
+     */
+    public void addAssociatePart(Part selected){}
 }

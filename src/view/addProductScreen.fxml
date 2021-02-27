@@ -11,13 +11,13 @@
          <font>
             <Font size="15.0" />
          </font></Label>
-        <TextField fx:id="addProdSearch" layoutX="760.0" layoutY="29.0" prefHeight="27.0" prefWidth="218.0" />
-        <TableView fx:id="invPartsTable" layoutX="502.0" layoutY="74.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="476.0">
+        <TextField layoutX="760.0" layoutY="29.0" prefHeight="27.0" prefWidth="218.0" />
+        <TableView layoutX="502.0" layoutY="74.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="476.0">
             <columns>
-                <TableColumn fx:id="invPartID" prefWidth="86.0" text="Part ID" />
-                <TableColumn fx:id="invPartName" prefWidth="122.0" text="Part Name" />
-                <TableColumn fx:id="invPartInvLevel" prefWidth="135.0" text="Inventory Level" />
-                <TableColumn fx:id="invPartPPU" maxWidth="132.0" prefWidth="132.0" text="Price/Cost Per Unit" />
+                <TableColumn prefWidth="86.0" text="Part ID" />
+                <TableColumn prefWidth="122.0" text="Part Name" />
+                <TableColumn prefWidth="135.0" text="Inventory Level" />
+                <TableColumn maxWidth="132.0" prefWidth="132.0" text="Price/Cost Per Unit" />
             </columns>
         </TableView>
         <Button layoutX="880.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="40.0" text="Add" textFill="#545252" />
@@ -61,12 +61,12 @@
             </Label>
          </children>
       </AnchorPane>
-      <TableView fx:id="invPartsTable1" layoutX="498.0" layoutY="348.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="476.0">
+      <TableView layoutX="498.0" layoutY="348.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="476.0">
          <columns>
-            <TableColumn fx:id="invPartID1" prefWidth="86.0" text="Part ID" />
-            <TableColumn fx:id="invPartName1" prefWidth="122.0" text="Part Name" />
-            <TableColumn fx:id="invPartInvLevel1" prefWidth="135.0" text="Inventory Level" />
-            <TableColumn fx:id="invPartPPU1" maxWidth="132.0" prefWidth="132.0" text="Price/Cost Per Unit" />
+            <TableColumn prefWidth="86.0" text="Part ID" />
+            <TableColumn prefWidth="122.0" text="Part Name" />
+            <TableColumn prefWidth="135.0" text="Inventory Level" />
+            <TableColumn maxWidth="132.0" prefWidth="132.0" text="Price/Cost Per Unit" />
          </columns>
       </TableView>
       <Button layoutX="795.0" layoutY="565.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Remove Associated Part" />
