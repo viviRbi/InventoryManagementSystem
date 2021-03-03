@@ -2,6 +2,6 @@ package controller;
 
 import javafx.event.ActionEvent;
 
-public class PartController {
+public class PartController extends Controller{
 
 }

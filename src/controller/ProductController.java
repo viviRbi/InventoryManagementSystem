@@ -1,5 +1,5 @@
 package controller;
 
-public class ProductController {
+public class ProductController extends Controller{
     
 }

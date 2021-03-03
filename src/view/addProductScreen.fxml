@@ -71,7 +71,7 @@
       </TableView>
       <Button layoutX="795.0" layoutY="565.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Remove Associated Part" />
       <Button layoutX="794.0" layoutY="606.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="Save" />
-      <Button layoutX="885.0" layoutY="606.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Cancel" />
+      <Button layoutX="885.0" layoutY="606.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Cancel" onAction="#jumpToMainScreen"/>
         </AnchorPane>
     </children>
 </AnchorPane>
