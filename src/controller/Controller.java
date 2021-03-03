@@ -27,6 +27,8 @@ public class Controller {
         }
     }
 
+
+    // jump back to the main screen, use for all cancel btn
     public void jumpToMainScreen(ActionEvent actionEvent) throws IOException {
         jumpScreen(actionEvent,"mainScreen", "Main Screen", 1137.0, 480.0);
     }
