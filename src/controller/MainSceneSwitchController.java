@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public class MainSceneSwitchController extends Controller{
+
     public void jumpToAddPartScreen(ActionEvent actionEvent) throws IOException {
         jumpScreen(actionEvent,"addPartScreen", "Add Part Screen", 749.0, 625.0);
     }
