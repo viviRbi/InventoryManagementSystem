@@ -61,7 +61,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="973.0" layoutY="430.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Exit" textFill="#5b5b5b">
+      <Button layoutX="973.0" layoutY="430.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Exit" onAction="#ExitButton" textFill="#5b5b5b">
          <font>
             <Font size="14.0" />
          </font>
@@ -73,7 +73,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField id="partsSearchFieldMain" fx:id="productSearchBox1" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search parts by Id or Name" style="-fx-border-color: lightgrey;" />
+            <TextField id="partsSearchFieldMain" fx:id="partSearchBox1" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search parts by Id or Name" style="-fx-border-color: lightgrey;" />
             <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b">
                <font>
                   <Font size="14.0" />
@@ -84,24 +84,25 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <TableView fx:id="productsTable1" layoutX="24.0" layoutY="60.0" prefHeight="185.0" prefWidth="454.0">
+            <!-------------------------------------------- Part ----------------------------------------------- -->
+            <TableView fx:id="partTable" layoutX="24.0" layoutY="60.0" prefHeight="185.0" prefWidth="454.0">
                <columns>
-                  <TableColumn fx:id="productIDColumn1" prefWidth="93.0" text="Part ID">
+                  <TableColumn fx:id="partId" prefWidth="93.0" text="Part ID">
                      <cellValueFactory>
                         <PropertyValueFactory property="ProductID" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productNameColumn1" prefWidth="118.0" text="Part Name">
+                  <TableColumn fx:id="partName" prefWidth="118.0" text="Part Name">
                      <cellValueFactory>
                         <PropertyValueFactory property="Name" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productCountColumn1" prefWidth="114.0" style="text-align: justify;" text="Inventory Level">
+                  <TableColumn fx:id="partStock" prefWidth="114.0" style="text-align: justify;" text="Inventory Level">
                      <cellValueFactory>
                         <PropertyValueFactory property="InStock" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productCountColumn11" prefWidth="128.0" style="text-align: justify;" text="Price/Cost per Unit">
+                  <TableColumn fx:id="partPrice" prefWidth="128.0" style="text-align: justify;" text="Price/Cost per Unit">
                      <cellValueFactory>
                         <PropertyValueFactory property="InStock" />
                      </cellValueFactory>

@@ -2,6 +2,9 @@
  * Supplied class Part.java
  */
 package model;
+
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author Vy Le
@@ -108,7 +111,23 @@ public abstract class Product {
     }
 
     /**
-     * @param max the max to set
+     * @item to list
+     * Need improve: ddf
+     * Error: sdsdsds
      */
     public void addAssociatePart(Part selected){}
+
+    /**
+     *
+     */
+    public boolean deleteAssociatePart(Part part){
+        return  false;
+    }
+
+    /**
+     * @return AllAssociate part
+     */
+    public ObservableList<Part> getAllAssociateParts(){
+        return null;
+    }
 }
