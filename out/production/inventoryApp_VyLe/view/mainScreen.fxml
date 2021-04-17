@@ -20,8 +20,8 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField id="partsSearchFieldMain" fx:id="productSearchBox" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search product by Id or Name" style="-fx-border-color: lightgrey;" />
-            <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b">
+            <TextField id="partsSearchFieldMain" fx:id="productSearch" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search product by Id or Name" style="-fx-border-color: lightgrey;" />
+            <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b" onAction="#deleteProduct">
                <font>
                   <Font size="14.0" />
                </font></Button>
@@ -66,15 +66,15 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <AnchorPane id="outterPRoductsBoxMain" layoutX="48.0" layoutY="105.0" prefHeight="300.0" prefWidth="499.0" style="-fx-border-radius: 10; -fx-border-color: grey;">
+      <AnchorPane layoutX="48.0" layoutY="105.0" prefHeight="300.0" prefWidth="499.0" style="-fx-border-radius: 10; -fx-border-color: grey;">
          <children>
-            <Label id="productsLabelMain" layoutX="21.0" layoutY="13.0" style="-fx-label-padding: 10;" text="Parts">
+            <Label layoutX="21.0" layoutY="13.0" style="-fx-label-padding: 10;" text="Parts">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField id="partsSearchFieldMain" fx:id="partSearchBox1" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search parts by Id or Name" style="-fx-border-color: lightgrey;" />
-            <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b">
+            <TextField fx:id="partSearch" layoutX="290.0" layoutY="20.0" prefHeight="22.0" prefWidth="182.0" promptText="Search parts by Id or Name" style="-fx-border-color: lightgrey;" />
+             <Button layoutX="412.0" layoutY="256.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Delete" textFill="#5b5b5b" onAction="#deletePart">
                <font>
                   <Font size="14.0" />
                </font>

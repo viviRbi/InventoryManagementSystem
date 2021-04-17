@@ -77,11 +77,21 @@ public class PartModifyController extends Controller implements Initializable {
                 update.setMin(partMin);
                 update.setPrice(partPrice);
                 update.setStock(partInventory);
-                Inventory.allParts.set(partIndex, update);
+                if(this.toggleSource.getSelectedToggle().equals(inhouse)){
+                    int machineID = Integer.parseInt(machineId.getText());
+                    update = (InHouse) update;
+                    ((InHouse) update).setMachineId(machineID);
+                    Inventory.allParts.set(partIndex, update);
+                } else {
+                    String machineID = machineId.getText();
+                    update = (Outsourced) update;
+                    ((Outsourced) update).setCompanyName(machineID);
+                    Inventory.allParts.set(partIndex, update);
+                }
                 this.jumpToMainScreen(actionEvent);
             }
         } catch(NumberFormatException err){
-            this.errorAlert("Number error","Please make sure that you enter a valid number");
+            this.errorAlert("Number error","Please make sure that you enter a valid number to max, min, stock, machine id");
         }
     }
 
