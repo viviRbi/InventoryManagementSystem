@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 public class MainController extends MainSceneSwitchController implements Initializable {
 
     @FXML
-    private TableView<Part> tableView;
+    private TableView<Part> partTable;
 
     @FXML
     private TableColumn<Part, String> partName;
@@ -35,24 +36,45 @@ public class MainController extends MainSceneSwitchController implements Initial
     @FXML
     private TableColumn<Part, Integer>  partStock;
 
-    //@FXML
-    //private TableColumn<Part, Integer>  partMin;
 
-   // @FXML
-    //private TableColumn<Part, Integer>  partMax;
+    @FXML
+    private TableView<Product> productTable;
+
+    @FXML
+    private TableColumn<Product, String> productName;
+
+    @FXML
+    private TableColumn<Product, Integer> productId;
+
+    @FXML
+    private TableColumn<Product, Double>  productPrice;
+
+    @FXML
+    private TableColumn<Product, Integer>  productInv;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.displayPart();
+        this.displayProduct();
+    }
 
-        partId.setCellValueFactory(new PropertyValueFactory<>("partId"));
-        partName.setCellValueFactory(new PropertyValueFactory<>("partName"));
-        partPrice.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
-        partStock.setCellValueFactory(new PropertyValueFactory<>("partStock"));
-        //partMin.setCellValueFactory(new PropertyValueFactory<>("partMin"));
-        //partMax.setCellValueFactory(new PropertyValueFactory<>("partMax"));
+    public void displayPart(){
+        partId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        partStock.setCellValueFactory(new PropertyValueFactory<>("stock"));
 
-        tableView.getItems(Inventory.getAllParts());
+        partTable.setItems(Inventory.getAllParts());
+    }
+
+    public void displayProduct(){
+        productId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        productInv.setCellValueFactory(new PropertyValueFactory<>("stock"));
+
+        productTable.setItems(Inventory.getAllProducts());
     }
 
 

@@ -30,24 +30,24 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <TableView fx:id="productsTable" layoutX="24.0" layoutY="60.0" prefHeight="185.0" prefWidth="454.0">
+            <TableView fx:id="productTable" layoutX="24.0" layoutY="60.0" prefHeight="185.0" prefWidth="454.0">
                <columns>
-                  <TableColumn fx:id="productIDColumn" prefWidth="93.0" text="Product ID">
+                  <TableColumn fx:id="productId" prefWidth="93.0" text="Product ID">
                      <cellValueFactory>
                         <PropertyValueFactory property="ProductID" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productNameColumn" prefWidth="118.0" text="Product Name">
+                  <TableColumn fx:id="productName" prefWidth="118.0" text="Product Name">
                      <cellValueFactory>
                         <PropertyValueFactory property="Name" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productCountColumn" prefWidth="106.0" style="text-align: justify;" text="Inventory Level">
+                  <TableColumn fx:id="productInv" prefWidth="106.0" style="text-align: justify;" text="Inventory Level">
                      <cellValueFactory>
                         <PropertyValueFactory property="InStock" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="productCountColumn2" prefWidth="136.0" style="text-align: justify;" text="Price/Cost per Unit">
+                  <TableColumn fx:id="productPrice" prefWidth="136.0" style="text-align: justify;" text="Price/Cost per Unit">
                      <cellValueFactory>
                         <PropertyValueFactory property="InStock" />
                      </cellValueFactory>
@@ -84,7 +84,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <!-------------------------------------------- Part ----------------------------------------------- -->
+
             <TableView fx:id="partTable" layoutX="24.0" layoutY="60.0" prefHeight="185.0" prefWidth="454.0">
                <columns>
                   <TableColumn fx:id="partId" prefWidth="93.0" text="Part ID">

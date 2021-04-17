@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import model.InHouse;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,6 +34,13 @@ public class Main extends Application {
 
         Inventory.addPart(part1);
         Inventory.addPart(part2);
+
+
+        Product product1 = new Product(1,"sdsd",2.99,3,1,5);
+        Product product2 = new Product(2,"shh",2.99,3,1,5);
+
+        Inventory.addProduct(product1);
+        Inventory.addProduct(product2);
         launch(args);
     }
 }

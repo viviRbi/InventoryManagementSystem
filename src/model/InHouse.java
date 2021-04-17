@@ -11,6 +11,9 @@ public class InHouse extends Part {
         super(id,name,price,stock, min, max);
         this.machineId = machineId;
     }
+    public InHouse(){
+        super();
+    }
 
     public int getMachineId() {
         return machineId;
@@ -18,5 +21,12 @@ public class InHouse extends Part {
 
     public void setMachineId(int machineId) {
         this.machineId = machineId;
+    }
+
+    @Override
+    public String toString() {
+        return "InHouse{" +
+                "machineId=" + this.machineId + " " + super.getName() +
+                '}';
     }
 }

@@ -11,6 +11,9 @@ public class Outsourced extends Part {
         super(id,name,price,stock, min, max);
         this.companyName = companyName;
     }
+    public Outsourced(){
+        super();
+    }
 
     public String getCompanyName() {
         return this.companyName;
