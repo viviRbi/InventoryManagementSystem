@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ProductAddController extends Controller implements Initializable {
+public class ProductModifyController extends Controller implements Initializable {
 
     @FXML
     private TextField id;
@@ -55,15 +55,11 @@ public class ProductAddController extends Controller implements Initializable {
     private TableColumn<Part, Double> mainPartPrice;
     @FXML
     private TextField searchField;
-
-    private int prodId;
-    private Product prod;
+    private static Product selectedProduct;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int prodId = Inventory.getAllProducts().size() + 1;
-        this.prodId = prodId;
-        id.setText(prodId + "");
+        this.setFieldText();
 
         secondPartId.setCellValueFactory(new PropertyValueFactory<>("id"));
         secondPartName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -104,8 +100,9 @@ public class ProductAddController extends Controller implements Initializable {
     @FXML
     public void addButton(ActionEvent actionEvent){
         try{
+            int id = selectedProduct.getId();
             String name = this.name.getText();
-            int stock = Integer.parseInt(inv.getText());
+            int stock = Integer.parseInt(this.inv.getText());
             double price = Double.parseDouble(this.price.getText());
             int max = Integer.parseInt(this.max.getText());
             int min = Integer.parseInt(this.min.getText());
@@ -114,12 +111,10 @@ public class ProductAddController extends Controller implements Initializable {
                 errorAlert("Min Max Inventory Error", " the inv Should be between max and min ");
             }
             else{
-                this.prod = new Product(this.prodId, name, price, stock, min, max);
-                this.prod.addAssociatePart((ObservableList) Inventory.chosenPart);
-                Inventory.allProducts.add(this.prod);
-                /*for (Part e : Inventory.chosenPart){
-                    this.prod.addAssociatePart(e);
-                }*/
+                int index = Inventory.getAllProducts().indexOf(selectedProduct);
+                Product updatedProduct = new Product(id, name, price, stock, min, max);
+                updatedProduct.addAssociatePart((ObservableList) Inventory.chosenPart);
+                Inventory.allProducts.set(index, updatedProduct);
 
                 this.name.clear();
                 this.inv.clear();
@@ -144,7 +139,32 @@ public class ProductAddController extends Controller implements Initializable {
 
     @FXML
     public void removeAssociatePart(ActionEvent actionEvent){
-        Part chosenPart = secondPart.getSelectionModel().getSelectedItem();
-        Inventory.chosenPart.remove(chosenPart);
+        Part chosenPart = mainPart.getSelectionModel().getSelectedItem();
+        if (Inventory.chosenPart != null) Inventory.chosenPart.remove(chosenPart);
+        else selectedProduct.deleteAssociatePart(chosenPart);
+    }
+
+    public void setSelectedProduct(Product product) {
+        //System.out.print(product);
+        this.selectedProduct = product;
+        Inventory.chosenPart.addAll(product.getAllAssociateParts());
+
+    }
+
+    private void setFieldText() {
+        String productName = selectedProduct.getName();
+        String productInventory = Integer.toString(selectedProduct.getStock());
+        String productPrice = Double.toString(selectedProduct.getPrice());
+        String productId = Integer.toString(selectedProduct.getId());
+        String productMax = Integer.toString(selectedProduct.getMax());
+        String productMin = Integer.toString(selectedProduct.getMin());
+
+        this.id.setText(productId);
+        this.name.setText(productName);
+        this.inv.setText(productInventory);
+        this.price.setText(productPrice);
+        this.id.setText(productId);
+        this.max.setText(productMax);
+        this.min.setText(productMin);
     }
 }

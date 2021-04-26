@@ -3,7 +3,10 @@
  */
 package model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import java.util.List;
 
 /**
  *
@@ -16,6 +19,7 @@ public class Product {
     private int stock;
     private int min;
     private int max;
+    private ObservableList associatePart = FXCollections.observableArrayList();
 
     public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
@@ -122,19 +126,31 @@ public class Product {
      * Need improve: ddf
      * Error: sdsdsds
      */
-    public void addAssociatePart(Part selected){}
+    public void addAssociatePart(Part selected){
+        this.associatePart.add(selected);
+    }
+
+    public void addAssociatePart(ObservableList selected){
+        //System.out.println(selected);
+        this.associatePart.addAll(selected);
+    }
 
     /**
      *
      */
     public boolean deleteAssociatePart(Part part){
-        return  false;
+        if(this.associatePart.contains(part)){
+            this.associatePart.remove(part);
+            return true;
+        } else return false;
+
+
     }
 
     /**
      * @return AllAssociate part
      */
     public ObservableList<Part> getAllAssociateParts(){
-        return null;
+        return this.associatePart;
     }
 }

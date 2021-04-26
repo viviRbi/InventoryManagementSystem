@@ -141,7 +141,7 @@ public class MainController extends MainSceneSwitchController implements Initial
         if (selectedIndex >= 0) {
             Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
             errorAlert.setTitle("Delete Part");
-            errorAlert.setHeaderText("Do you want to delete this part?");
+            errorAlert.setHeaderText("Do you really want to delete this part?");
 
             ButtonType buttonTypeYes = new ButtonType("Yes");
             ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -163,14 +163,14 @@ public class MainController extends MainSceneSwitchController implements Initial
         if (selectedIndex >= 0) {
             Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
             errorAlert.setTitle("Delete Product");
-            errorAlert.setHeaderText("Do you want to delete this product?");
+            errorAlert.setHeaderText("Do you really want to delete this product?");
 
             ButtonType buttonTypeYes = new ButtonType("Yes");
             ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
             errorAlert.getButtonTypes().setAll(buttonTypeYes, buttonTypeCancel);
-
             Optional<ButtonType> result = errorAlert.showAndWait();
+
             if (result.get() == buttonTypeYes) {
                 Inventory.allProducts.remove(selectedIndex);
             } else {
@@ -183,9 +183,7 @@ public class MainController extends MainSceneSwitchController implements Initial
     @FXML
     public void ExitButton(ActionEvent event) throws Exception {
         try {
-
             System.exit(0);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
