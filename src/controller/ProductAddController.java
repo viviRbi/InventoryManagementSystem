@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Vy Le
+ * Product Add Controller
+ */
 public class ProductAddController extends Controller implements Initializable {
 
     @FXML
@@ -59,6 +63,11 @@ public class ProductAddController extends Controller implements Initializable {
     private int prodId;
     private Product prod;
 
+    /**
+     * Instantiate Products and Parts
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int prodId = Inventory.getAllProducts().size() + 1;
@@ -100,7 +109,10 @@ public class ProductAddController extends Controller implements Initializable {
         sortedListParts.comparatorProperty().bind(secondPart.comparatorProperty());
         secondPart.setItems(sortedListParts);
     }
-
+    /**
+     * When user clicked AddButton in Product Modify scene. Save Product and its associate Parts
+     * @param actionEvent
+     */
     @FXML
     public void addButton(ActionEvent actionEvent){
         try{
@@ -135,13 +147,19 @@ public class ProductAddController extends Controller implements Initializable {
             this.errorAlert("Number error","Please make sure that you enter a valid number to min, max, inventory");
         }
     }
-
+    /**
+     * Add the selected part to static field chosenPart in Inventory class
+     * @param actionEvent
+     */
     @FXML
     public void addPartToProduct(ActionEvent actionEvent){
         Part selectedPart = secondPart.getSelectionModel().getSelectedItem();
         Inventory.chosenPart.add(selectedPart);
     }
-
+    /**
+     * Remove  selected part to static field chosenPart in Inventory class
+     * @param actionEvent
+     */
     @FXML
     public void removeAssociatePart(ActionEvent actionEvent){
         Part chosenPart = secondPart.getSelectionModel().getSelectedItem();

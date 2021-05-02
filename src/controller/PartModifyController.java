@@ -12,6 +12,11 @@ import model.Part;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+/**
+ * @author: Vy Le
+ * Modify part scene controller
+ */
 public class PartModifyController extends Controller implements Initializable {
 
     @FXML
@@ -51,11 +56,21 @@ public class PartModifyController extends Controller implements Initializable {
     private static Part selectedPart;
     private static String altFieldText;
 
+    /**
+     * Initialize Part table
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.setField();
     }
 
+    /**
+     * Update part table
+     * @param actionEvent
+     * @throws Exception
+     */
     @FXML
     public void updatePart(ActionEvent actionEvent) throws Exception {
         try {
@@ -95,6 +110,11 @@ public class PartModifyController extends Controller implements Initializable {
         }
     }
 
+    /**
+     * Based on selected toogle to instatiate a new Part (either inHouse or Outsouce object)
+     * @param selected chosen toogle
+     * @return either an InHouse or Outsource object
+     */
     public Part setPartType(Toggle selected){
         Part update;
         if (selected.equals(inhouse)){
@@ -103,6 +123,10 @@ public class PartModifyController extends Controller implements Initializable {
         return update;
     }
 
+    /**
+     * Change text field to either companyNameId field type value or companyName field type value
+     * @param part
+     */
     public static void setSelectedPart(Part part) {
         selectedPart = part;
        if (part instanceof  InHouse) {
@@ -117,6 +141,9 @@ public class PartModifyController extends Controller implements Initializable {
 
     }
 
+    /**
+     * Add text to all Part text field to show info
+     */
     private void setField() {
         String stockText = selectedPart.getStock() + "";
         String minText = Integer.toString(selectedPart.getMin());
@@ -139,8 +166,11 @@ public class PartModifyController extends Controller implements Initializable {
         this.setToggle();
     }
 
+    /**
+     * Set text field to be machine id or Company name base on Part instance type. This used for instantiate
+     */
     public void setToggle(){
-        System.out.println(selectedPart instanceof InHouse);
+        //System.out.println(selectedPart instanceof InHouse);
        if(selectedPart instanceof InHouse){
             this.machineIdToggle.setText("MachineId");
             this.toggleSource.selectToggle(inhouse);
@@ -150,6 +180,9 @@ public class PartModifyController extends Controller implements Initializable {
         }
     }
 
+    /**
+     * Set text field to be machine id or Company name base on Part instance type. This used for modify object on the fly based on Action (user input) on screen
+     */
     @FXML
     public void outSouceInhouseToggle(ActionEvent event) throws Exception {
 

@@ -59,6 +59,11 @@ public class MainController extends MainSceneSwitchController implements Initial
     @FXML
     private TextField productSearch;
 
+    /**
+     * Instanciate Part and Product table
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.displayPart();
@@ -68,6 +73,9 @@ public class MainController extends MainSceneSwitchController implements Initial
 
     }
 
+    /**
+     * Display Part table value
+     */
     public void displayPart(){
         partId.setCellValueFactory(new PropertyValueFactory<>("id"));
         partName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -77,7 +85,9 @@ public class MainController extends MainSceneSwitchController implements Initial
         partTable.setItems(Inventory.getAllParts());
 
     }
-
+    /**
+     * Display Product table value
+     */
     public void displayProduct(){
         productId.setCellValueFactory(new PropertyValueFactory<>("id"));
         productName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -87,6 +97,9 @@ public class MainController extends MainSceneSwitchController implements Initial
         productTable.setItems(Inventory.getAllProducts());
     }
 
+    /**
+     * Search Part table rows base on Id or Part name
+     */
     public void searchPart(){
         FilteredList<Part> filteredParts = new FilteredList<>(Inventory.allParts, b -> true);
 
@@ -111,6 +124,9 @@ public class MainController extends MainSceneSwitchController implements Initial
         partTable.setItems(sortedListParts);
     }
 
+    /**
+     * Search Part table rows base on Id or Product name
+     */
     public void searchProduct(){
         FilteredList<Product> filteredProducts = new FilteredList<>(Inventory.allProducts, b -> true);
 
@@ -135,6 +151,11 @@ public class MainController extends MainSceneSwitchController implements Initial
         productTable.setItems(sortedListProducts);
     }
 
+    /**
+     * Delete Part base on selected Part
+     * @param event
+     * @throws Exception
+     */
     @FXML
     public void deletePart(ActionEvent event) throws Exception{
         int selectedIndex = partTable.getSelectionModel().getSelectedIndex();
@@ -157,6 +178,11 @@ public class MainController extends MainSceneSwitchController implements Initial
         }
     }
 
+    /**
+     * Delete Product base on selected Product
+     * @param event
+     * @throws Exception
+     */
     @FXML
     public void deleteProduct(ActionEvent event) throws Exception{
         int selectedIndex = productTable.getSelectionModel().getSelectedIndex();
@@ -179,7 +205,11 @@ public class MainController extends MainSceneSwitchController implements Initial
         }
     }
 
-
+    /**
+     * Close the program
+     * @param event
+     * @throws Exception
+     */
     @FXML
     public void ExitButton(ActionEvent event) throws Exception {
         try {

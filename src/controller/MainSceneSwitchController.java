@@ -8,6 +8,10 @@ import model.Product;
 
 import java.io.IOException;
 
+/**
+ * @author: Vy Le
+ * Extend from controller class. THis class used to switch between the scenes in Main Scene only
+ */
 public class MainSceneSwitchController extends Controller{
 
     private Part selectedPart;
@@ -16,10 +20,20 @@ public class MainSceneSwitchController extends Controller{
     @FXML
     private TableView<Product> productTable;
 
+    /**
+     * Jump to add Part screen
+     * @param actionEvent
+     * @throws IOException
+     */
     public void jumpToAddPartScreen(ActionEvent actionEvent) throws IOException {
         jumpScreen(actionEvent,"addPartScreen", "Add Part Screen", 749.0, 625.0);
     }
 
+    /**
+     * Jump to modify part scene from Main scene
+     * @param actionEvent
+     * @throws IOException
+     */
     public void jumpToModifyPartScreen(ActionEvent actionEvent) throws IOException {
         try{
 
@@ -34,10 +48,20 @@ public class MainSceneSwitchController extends Controller{
 
     }
 
+    /**
+     * Jump to add product scene from Main scene
+     * @param actionEvent
+     * @throws IOException
+     */
     public void jumpToAddProductScreen(ActionEvent actionEvent) throws IOException {
         jumpScreen(actionEvent,"addProductScreen", "Add Product Screen", 1200.0, 800.0);
     }
 
+    /**
+     * Jump to modify product scene from Main scene
+     * @param actionEvent
+     * @throws IOException
+     */
     public void jumpToModifyProductScreen(ActionEvent actionEvent) throws IOException {
         try{
             Product modifyProduct = productTable.getSelectionModel().getSelectedItem();

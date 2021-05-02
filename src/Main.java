@@ -16,6 +16,20 @@ import model.Product;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+* JavaDoc folder locate next to the scr and out folder
+*/
+
+/**
+ * RUNTIME ERROR: used to have one because of a typo mistake in MainController and MainScreen FXML
+ */
+
+/**
+ * FUTURE ENHANCEMENT: serialize product and part observable to save and load those object so this can become a real application
+ */
+
+
+
 public class Main extends Application {
 
 

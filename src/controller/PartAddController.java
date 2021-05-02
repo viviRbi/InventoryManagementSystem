@@ -12,6 +12,10 @@ import model.Part;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Vy Le
+ * Part Add Controller
+ */
 public class PartAddController extends Controller implements Initializable {
 
     @FXML
@@ -49,6 +53,11 @@ public class PartAddController extends Controller implements Initializable {
 
     int partId;
 
+    /**
+     * Instnciate Part. Create id based on observable size. When a part delete, other part takes its id
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int partId = Inventory.getAllParts().size() + 1;
@@ -56,6 +65,11 @@ public class PartAddController extends Controller implements Initializable {
         id.setText(partId + "");
     }
 
+    /**
+     * Add Part to the static Observable Part in Inventory
+     * @param event
+     * @throws Exception
+     */
     public void addPart(ActionEvent event) throws Exception{
 
         try{
@@ -85,6 +99,11 @@ public class PartAddController extends Controller implements Initializable {
 
     }
 
+    /**
+     * Base on user choice, change text to Machine Id/ Company Name
+     * @param event
+     * @throws Exception
+     */
     @FXML
     public void outSouceInhouseToggle(ActionEvent event) throws Exception {
 

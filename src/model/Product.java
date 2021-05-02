@@ -21,6 +21,15 @@ public class Product {
     private int max;
     private ObservableList associatePart = FXCollections.observableArrayList();
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param price
+     * @param stock
+     * @param min
+     * @param max
+     */
     public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
@@ -30,6 +39,13 @@ public class Product {
         this.max = max;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param price
+     * @param stock
+     */
     public Product(int id, String name, double price, int stock) {
         this.id = id;
         this.name = name;
@@ -122,21 +138,23 @@ public class Product {
     }
 
     /**
-     * @item to list
-     * Need improve: ddf
-     * Error: sdsdsds
+     * @param selected selected part from a Part table (top right table)
      */
     public void addAssociatePart(Part selected){
         this.associatePart.add(selected);
     }
 
+    /**
+     * @param selected select the observable list of Part from static chosenList in Inventory class. Final step before safe this Product object
+     */
     public void addAssociatePart(ObservableList selected){
         //System.out.println(selected);
         this.associatePart.addAll(selected);
     }
 
     /**
-     *
+     * @param part  After a product saved, this will take the selected part from the SecondPart table and remove it, then save the product
+     * @return boolean if the product had been remove or not
      */
     public boolean deleteAssociatePart(Part part){
         if(this.associatePart.contains(part)){

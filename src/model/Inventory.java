@@ -15,58 +15,38 @@ public class Inventory {
     public static ObservableList<Product> allProducts = FXCollections.observableArrayList();
     public static ObservableList<Part> chosenPart = FXCollections.observableArrayList();
 
-
+    /**
+     *
+     * @return all Part
+     */
     public static ObservableList<Part> getAllParts() {
         return allParts;
     }
 
+    /**
+     *
+     * @return all Product
+     */
     public static ObservableList<Product> getAllProducts() {
         return allProducts;
     }
 
 
-
+    /**
+     *
+     * @param newPart
+     */
     public static void addPart (Part newPart){
 
         allParts.add(newPart);
     }
 
+    /**
+     *
+     * @param newProduct
+     */
     public static void addProduct(Product newProduct){
         allProducts.add(newProduct);
     }
-
-    public Part lookupPart(int partId){
-        return null;
-    }
-
-    public Product lookupProduct(int productId){
-        return null;
-    }
-
-    public Part lookupPart(String name){
-        return null;
-    }
-
-    public Product lookupProduct(String name){
-        return null;
-    }
-
-    public void updatePart(int index, Part selectedPart){
-
-    }
-
-    public void updateProduct(int index, Product newProduct){
-
-    }
-
-    public boolean deletePart(Part selectedPart){
-        return false;
-    }
-
-    public boolean deleteProduct(Product selectedProduct){
-        return false;
-    }
-
-
 
 }

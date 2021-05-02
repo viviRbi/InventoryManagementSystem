@@ -14,6 +14,15 @@ public abstract class Part {
     private int min;
     private int max;
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param price
+     * @param stock
+     * @param min
+     * @param max
+     */
     public Part(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
@@ -23,6 +32,13 @@ public abstract class Part {
         this.max = max;
     }
 
+    /**
+     *
+     * @param id
+     * @param name
+     * @param price
+     * @param stock
+     */
     public Part(int id, String name, double price, int stock) {
         this.id = id;
         this.name = name;

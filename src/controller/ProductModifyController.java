@@ -57,6 +57,11 @@ public class ProductModifyController extends Controller implements Initializable
     private TextField searchField;
     private static Product selectedProduct;
 
+    /**
+     * Print Product and Part value to the table. Filter them
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.setFieldText();
@@ -97,6 +102,10 @@ public class ProductModifyController extends Controller implements Initializable
         secondPart.setItems(sortedListParts);
     }
 
+    /**
+     * When user clicked AddButton in Product Modify scene. Save Product and its associate Parts
+     * @param actionEvent
+     */
     @FXML
     public void addButton(ActionEvent actionEvent){
         try{
@@ -131,12 +140,20 @@ public class ProductModifyController extends Controller implements Initializable
         }
     }
 
+    /**
+     * Add the selected part to static field chosenPart in Inventory class
+     * @param actionEvent
+     */
     @FXML
     public void addPartToProduct(ActionEvent actionEvent){
         Part selectedPart = secondPart.getSelectionModel().getSelectedItem();
         Inventory.chosenPart.add(selectedPart);
     }
 
+    /**
+     * Remove  selected part to static field chosenPart in Inventory class
+     * @param actionEvent
+     */
     @FXML
     public void removeAssociatePart(ActionEvent actionEvent){
         Part chosenPart = mainPart.getSelectionModel().getSelectedItem();
@@ -144,6 +161,10 @@ public class ProductModifyController extends Controller implements Initializable
         else selectedProduct.deleteAssociatePart(chosenPart);
     }
 
+    /**
+     * Fet the product. Then add all of its associated parts to the static chosenPart field in Inventory class
+     * @param product
+     */
     public void setSelectedProduct(Product product) {
         //System.out.print(product);
         this.selectedProduct = product;
@@ -151,6 +172,9 @@ public class ProductModifyController extends Controller implements Initializable
 
     }
 
+    /**
+     * Set all product value to the text field. Used to instantiate
+     */
     private void setFieldText() {
         String productName = selectedProduct.getName();
         String productInventory = Integer.toString(selectedProduct.getStock());
