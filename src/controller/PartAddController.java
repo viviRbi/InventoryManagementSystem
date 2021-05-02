@@ -81,18 +81,21 @@ public class PartAddController extends Controller implements Initializable {
             int min = Integer.parseInt(this.min.getText());
 
             if (inv < min || inv > max){
-                errorAlert("Min Max Invenventory Error", "Inventory should be between min and max");
+                errorAlert("Min Max Inventory Error", "Inventory should be between min and max");
+            } else if (name.trim().equals("")) this.errorAlert("Empty Space Error","Field must not be empty");
+            else if (price < 0) this.errorAlert("Price Error","Price must be positive");
+            else {
+                Part newPart;
+                if (toggleSource.getSelectedToggle().equals(inhouse)) {
+                    int machineId = Integer.parseInt(this.machineId.getText());
+                    newPart = new InHouse(this.partId, name, price, inv, min, max, machineId);
+                } else {
+                    String companyName = this.machineId.getText();
+                    newPart = new Outsourced(this.partId, name, price, inv, min, max, companyName);
+                }
+                Inventory.addPart(newPart);
+                this.jumpToMainScreen(event);
             }
-            Part newPart;
-            if(toggleSource.getSelectedToggle().equals(inhouse)){
-                int machineId = Integer.parseInt(this.machineId.getText());
-                newPart = new InHouse(this.partId,name,price,inv,min,max,machineId);
-            }else {
-                String companyName = this.machineId.getText();
-                newPart = new Outsourced(this.partId,name,price,inv,min,max,companyName);
-            }
-            Inventory.addPart(newPart);
-            this.jumpToMainScreen(event);
         }catch(NumberFormatException e){
             this.errorAlert("Number error","Please make sure that you enter a valid number");
         }

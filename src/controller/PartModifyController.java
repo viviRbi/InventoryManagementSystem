@@ -82,8 +82,9 @@ public class PartModifyController extends Controller implements Initializable {
             int partMax = Integer.parseInt(max.getText());
             int partMin = Integer.parseInt(min.getText());
             if(partMax < partMin){
-                this.errorAlert("Min Max Error","Min value have to less than max value");
-            } else if (partName.trim()=="") this.errorAlert("Empty Space Error","Field must not be empty");
+                this.errorAlert("Min Max Error","Min value have to less than max value. Max & Min must be positive");
+            } else if (partName.trim().equals("")) this.errorAlert("Empty Space Error","Field must not be empty");
+            else if (partPrice < 0) this.errorAlert("Price Error","Price must be positive");
             else {
                 Part update = this.setPartType(toggleSource.getSelectedToggle());
                 update.setName(partName);
