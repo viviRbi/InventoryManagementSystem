@@ -9,8 +9,8 @@ import javafx.collections.ObservableList;
 import java.util.List;
 
 /**
- *
  * @author Vy Le
+ * Product class
  */
 public class Product {
     private int id;

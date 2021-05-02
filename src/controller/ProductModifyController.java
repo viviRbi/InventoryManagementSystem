@@ -6,9 +6,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Inventory;
 import model.Part;
@@ -17,8 +15,13 @@ import model.Product;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * @author Vy Le
+ * Product Modify Controller
+ */
 public class ProductModifyController extends Controller implements Initializable {
 
     @FXML
@@ -158,8 +161,24 @@ public class ProductModifyController extends Controller implements Initializable
     @FXML
     public void removeAssociatePart(ActionEvent actionEvent){
         Part chosenPart = mainPart.getSelectionModel().getSelectedItem();
-        if (Inventory.chosenPart != null) Inventory.chosenPart.remove(chosenPart);
-        else selectedProduct.deleteAssociatePart(chosenPart);
+
+        Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        errorAlert.setTitle("Delete Part");
+        errorAlert.setHeaderText("Do you really want to delete this part?");
+
+        ButtonType buttonTypeYes = new ButtonType("Yes");
+        ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        errorAlert.getButtonTypes().setAll(buttonTypeYes, buttonTypeCancel);
+
+        Optional<ButtonType> result = errorAlert.showAndWait();
+        if (result.get() == buttonTypeYes) {
+            Inventory.chosenPart.remove(chosenPart);
+        } else {
+            if (Inventory.chosenPart != null) Inventory.chosenPart.remove(chosenPart);
+            else selectedProduct.deleteAssociatePart(chosenPart);
+        }
+
     }
 
     /**

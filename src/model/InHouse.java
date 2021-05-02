@@ -2,7 +2,10 @@ package model;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-
+/**
+ * @author Vy Le
+ * InHouse class for Part abstract class
+ */
 public class InHouse extends Part {
 
     private int machineId;

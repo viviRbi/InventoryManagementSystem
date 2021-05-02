@@ -1,0 +1,7 @@
+Associcate Part for Product
+	- Don't know how to do it at first.
+	- Create an Observable List inside product class. Add a static observable list of chosenPart in inventory. Only when user clicks save, those part save to the product and added to Product observable list
+
+Display model value to table
+	- Got into trouble because error was throw when trying to display text to text field
+	- Then I find out the table column name was wrong

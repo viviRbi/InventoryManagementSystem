@@ -80,8 +80,8 @@ public class PartAddController extends Controller implements Initializable {
             int max = Integer.parseInt(this.max.getText());
             int min = Integer.parseInt(this.min.getText());
 
-            if (inv < min || inv > max){
-                errorAlert("Min Max Inventory Error", "Inventory should be between min and max");
+            if (inv < min || inv > max  || max <0 || min<0){
+                errorAlert("Min Max Inventory Error", "Inventory should be between min and max. Max and Min should be positive");
             } else if (name.trim().equals("")) this.errorAlert("Empty Space Error","Field must not be empty");
             else if (price < 0) this.errorAlert("Price Error","Price must be positive");
             else {

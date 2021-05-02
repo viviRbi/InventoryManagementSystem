@@ -21,6 +21,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * @author Vy Le
+ * Main Screen Controller
+ */
 public class MainController extends MainSceneSwitchController implements Initializable {
 
     @FXML

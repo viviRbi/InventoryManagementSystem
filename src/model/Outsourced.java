@@ -2,7 +2,10 @@ package model;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-
+/**
+ * @author Vy Le
+ * Outsource class from Part abstract class
+ */
 public class Outsourced extends Part {
 
     private String companyName;

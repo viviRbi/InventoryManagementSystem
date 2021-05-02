@@ -8,7 +8,10 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+/**
+ * @author Vy Le
+ * Inventory class. Hold static field for Part, Product, currently chosen associate part
+ */
 public class Inventory {
 
     public static ObservableList<Part> allParts = FXCollections.observableArrayList();

@@ -13,6 +13,10 @@ import model.Part;
 
 import java.io.IOException;
 
+/**
+ * @author Vy Le
+ * Controller, hold method to jump screen with some params and a method to return to Main screen pluc an Error Alert method for popup error
+ */
 public class Controller {
     @FXML
     private TableView<Part> partTable;

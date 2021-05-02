@@ -81,7 +81,7 @@ public class PartModifyController extends Controller implements Initializable {
             double partPrice = Double.parseDouble(price.getText());
             int partMax = Integer.parseInt(max.getText());
             int partMin = Integer.parseInt(min.getText());
-            if(partMax < partMin){
+            if(partMax < partMin || partMax <0 || partMin<0){
                 this.errorAlert("Min Max Error","Min value have to less than max value. Max & Min must be positive");
             } else if (partName.trim().equals("")) this.errorAlert("Empty Space Error","Field must not be empty");
             else if (partPrice < 0) this.errorAlert("Price Error","Price must be positive");

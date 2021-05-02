@@ -3,8 +3,8 @@
  */
 package model;
 /**
- *
  * @author Vy Le
+ * Part class
  */
 public abstract class Part {
     private int id;
