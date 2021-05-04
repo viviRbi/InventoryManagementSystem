@@ -191,21 +191,28 @@ public class MainController extends MainSceneSwitchController implements Initial
     public void deleteProduct(ActionEvent event) throws Exception{
         int selectedIndex = productTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
-            errorAlert.setTitle("Delete Product");
-            errorAlert.setHeaderText("Do you really want to delete this product?");
+            Product selectedProduct =productTable.getSelectionModel().getSelectedItem();
+            //System.out.print(selectedProduct.getAllAssociateParts().size() > 0);
+            if(selectedProduct.getAllAssociateParts().size() > 0) {
+                this.errorAlert("Product with associate parts", "You cannot delete this product because it had associate part(s");
+            } else{
+                Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                errorAlert.setTitle("Delete Product");
+                errorAlert.setHeaderText("Do you really want to delete this product?");
 
-            ButtonType buttonTypeYes = new ButtonType("Yes");
-            ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+                ButtonType buttonTypeYes = new ButtonType("Yes");
+                ButtonType buttonTypeCancel = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-            errorAlert.getButtonTypes().setAll(buttonTypeYes, buttonTypeCancel);
-            Optional<ButtonType> result = errorAlert.showAndWait();
+                errorAlert.getButtonTypes().setAll(buttonTypeYes, buttonTypeCancel);
+                Optional<ButtonType> result = errorAlert.showAndWait();
 
-            if (result.get() == buttonTypeYes) {
-                Inventory.allProducts.remove(selectedIndex);
-            } else {
-                errorAlert.close();
+                if (result.get() == buttonTypeYes) {
+                    Inventory.allProducts.remove(selectedIndex);
+                } else {
+                    errorAlert.close();
+                }
             }
+
         }
     }
 
